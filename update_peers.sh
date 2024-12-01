@@ -78,7 +78,7 @@ fi
 
 # Remove existing peers that are not in the top-3
 echo "Removing old peers..."
-sed -i 's/Peers: \[.*\]/Peers: \[\]/' $YGG_CONF
+sed -i '/Peers: \[/,/]/c\  Peers: []' $YGG_CONF
 
 peers_config=$(printf '"%s", ' $best_peers)
 peers_config="[ ${peers_config%, } ]"
